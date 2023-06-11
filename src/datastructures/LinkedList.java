@@ -44,56 +44,113 @@ public class LinkedList<T> implements LinkedListInterface<T> {
             tail.setNext(node);
             tail = node;
         }
+
+        size++;
     }
 
     @Override
     public void add(int index, T element) {
-        if (index == 0)
+        if (index == 0) {
             addFirst(element);
-        if (index == size)
+            return;
+        }
+        if (index == size) {
             addLast(element);
+            return;
+        }
+
+        LLNode<T> temp = head;
+
+        for (int i = 1; i < index; i++) {
+            temp = temp.getNext();
+        }
+
+        LLNode<T> node = new LLNode<>(element, temp.getNext());
+        temp.setNext(node);
+
+        size++;
+
     }
 
     @Override
     public T removeFirst() {
-        return null;
+        T value = head.getData();
+
+        head = head.getNext();
+        if (head == null) {
+            tail = null;
+        }
+
+        size--;
+        return value;
     }
 
     @Override
     public T removeLast() {
+        if (size <= 1)
+            return removeFirst();
+
+        LLNode<T> secondLast = get(size - 2);
+        T value = tail.getData();
+        tail = secondLast;
+        tail.setNext(null);
+        size--;
+
+        return value;
+    }
+
+    @Override
+    public T remove(int index) {
+        if (index == 0)
+            return removeFirst();
+        if (index == size - 1)
+            return removeLast();
+
+        LLNode<T> prev = get(index - 1);
+        T value = prev.getNext().getData();
+
+        prev.setNext(prev.getNext().getNext());
+        size--;
+
+        return value;
+    }
+
+    @Override
+    public LLNode<T> get(int index) {
+        LLNode<T> node = head;
+
+        for (int i = 0; i < index; i++) {
+            node = node.getNext();
+        }
+
+        return node;
+    }
+
+    public LLNode<T> find(T value) {
+        LLNode<T> node = head;
+
+        while (node != null) {
+            if (node.getData() == value)
+                return node;
+            node = node.getNext();
+        }
+
         return null;
-    }
-
-    @Override
-    public void remove(int index) {
-
-    }
-
-    @Override
-    public T get(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf() {
-        return 0;
     }
 
     @Override
     public boolean contains(T element) {
-        return false;
+        return find(element) != null;
     }
 
     @Override
     public void display() {
         LLNode<T> temp = head;
 
-        while (temp.getNext() != null) {
+        while (temp != null) {
             System.out.print(temp.getData() + " -> ");
             temp = temp.getNext();
-
-            if (temp.getNext() == null)
-                System.out.println(temp.getData());
         }
+        System.out.println("null");
     }
 }

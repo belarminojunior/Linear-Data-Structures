@@ -10,6 +10,11 @@ public class LLNode<T> {
         this.next = null;
     }
 
+    public LLNode(T data, LLNode<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
     public T getData() {
         return data;
     }

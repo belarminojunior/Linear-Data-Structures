@@ -10,12 +10,10 @@ public interface LinkedListInterface<T> {
     void add(int index, T element);
     T removeFirst();
     T removeLast();
-    void remove(int index);
-    T get (int index);
-
-    int indexOf();
+    T remove(int index);
+    LLNode<T> get (int index);
+    LLNode<T> find(T value);
     boolean contains(T element);
-
     void display();
 
 }
