@@ -1,4 +1,7 @@
 package interfaces;
 
-public class QueueInterface {
+public interface QueueInterface<T> {
+
+    
+
 }

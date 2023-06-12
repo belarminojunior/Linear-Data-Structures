@@ -4,10 +4,11 @@ public interface ArrayListInterface<T> {
     void add(T element);
     void add(int index, T element);
     T remove(int index);
+    T get(int index);
     int size();
     boolean isEmpty();
     boolean contains(T element);
-    int indexOf();
+    int indexOf(T element);
     void clear();
-    void toArray();
+    T[] toArray();
 }

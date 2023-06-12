@@ -1,17 +1,19 @@
 package test;
 
+import datastructures.ArrayList;
 import datastructures.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Integer> ll = new LinkedList<>();
+        ArrayList<Integer> list = new ArrayList<>(5);
+        list.add(1);
+        list.add(12);
+        list.add(14);
+        list.add(15);
+        list.add(17);
+        list.add(20);
+        list.add(3, 10);
 
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addLast(4);
-        ll.add(1, 7);
-        ll.display();
-        System.out.println(ll.contains(2));
-
+        System.out.println(list.toString());
     }
 }
