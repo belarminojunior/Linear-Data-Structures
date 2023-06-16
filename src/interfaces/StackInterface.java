@@ -3,9 +3,10 @@ package interfaces;
 public interface StackInterface<T> {
 
     boolean isEmpty();
-    T peek();
-    T pop();
-    T push (T element);
-    int search(T element);
+    int size();
+    T peek() throws Exception;
+    T pop() throws Exception;
+    void push (T element);
+    void display();
 
 }

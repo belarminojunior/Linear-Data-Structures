@@ -3,17 +3,21 @@ package test;
 import datastructures.ArrayList;
 import datastructures.LinkedList;
 import datastructures.Queue;
+import datastructures.Stack;
 
 public class Main {
-    public static void main(String[] args) {
-        Queue<Integer> queue = new Queue<>();
+    public static void main(String[] args) throws Exception {
+        Stack<Integer> s = new Stack<>();
 
-        queue.insert(2);
-        queue.insert(10);
-        queue.insert(100);
-        System.out.println(queue.front());
-        System.out.println(queue.remove());
-        queue.display();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+
+        s.display();
+
+        System.out.println(s.pop());
+
+        s.display();
     }
 
 }
