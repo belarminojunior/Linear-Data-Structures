@@ -2,18 +2,18 @@ package test;
 
 import datastructures.ArrayList;
 import datastructures.LinkedList;
+import datastructures.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>(5);
-        list.add(1);
-        list.add(12);
-        list.add(14);
-        list.add(15);
-        list.add(17);
-        list.add(20);
-        list.add(3, 10);
+        Queue<Integer> queue = new Queue<>();
 
-        System.out.println(list.toString());
+        queue.insert(2);
+        queue.insert(10);
+        queue.insert(100);
+        System.out.println(queue.front());
+        System.out.println(queue.remove());
+        queue.display();
     }
+
 }
